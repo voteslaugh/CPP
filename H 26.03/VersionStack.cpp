@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <vector>
 #include <string>
 #include <map>
@@ -13,34 +13,34 @@ public:
     void push(T elem)
     {
         change();
-        v.push_back(elem);
+        v.push_back(elem);  //o(1)
     };
     T pop()
     {
         change();
-        T elem = v.back();
+        T elem = v.back(); //o(1)
         v.pop_back();
         return elem;
     }
     void show()
     {
         cout << "stack:";
-        for (auto e : v) cout << e << " ";
+        for (auto e : v) cout << e << " "; //o(n)
         cout << endl;
     }
     void change()
     {
-        list[k] = v;
+        list[k] = v; //o(1)
         k++;
     }
 
     void rollback(int num)
     {
-            this->v = list[num];
+            this->v = list[num];  //o(1)
     }
     void forget()
     {
-        list.clear();
+        list.clear(); //o(1)
     }
 };
 
