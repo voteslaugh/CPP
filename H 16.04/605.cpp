@@ -5,7 +5,7 @@
 #include <string>
 using namespace std;
 
-void addWays(int remPoints, int remMoves, string s, vector <string>& res)
+void DartsThrow(int remPoints, int remThrow, string s, vector <string>& res)
 {
     if(remPoints == 0)
     {
@@ -14,33 +14,33 @@ void addWays(int remPoints, int remMoves, string s, vector <string>& res)
     }
 
     for (int i = 1; i <= 20; ++i) {
-        if (i<remPoints && remMoves>1)
+        if (i<remPoints && remThrow>1)
         {
-            addWays(remPoints - i, remMoves - 1, s + " " + to_string(i), res);
+            DartsThrow(remPoints - i, remThrow - 1, s + " " + to_string(i), res);
         }
     }
     for (int i=1; i<=20; ++i)
     {
-        if ((2*i<=remPoints && remMoves == 1) || (2*i <= remPoints && remMoves > 1))
+        if ((2*i<=remPoints && remThrow == 1) || (2*i <= remPoints && remThrow > 1))
         {
-            addWays(remPoints - 2*i, remMoves - 1,  s + " D" + to_string(i), res);
+            DartsThrow(remPoints - 2*i, remThrow - 1,  s + " D" + to_string(i), res);
         }
     }
     for (int i = 1; i <= 20; ++i)
     {
-        if (3 * i < remPoints && remMoves>1)
+        if (3 * i < remPoints && remThrow>1)
         {
-            addWays(remPoints - 3 * i, remMoves - 1, s + " T" + to_string(i), res);
+            DartsThrow(remPoints - 3 * i, remThrow - 1, s + " T" + to_string(i), res);
         }
     }
-    if (25 < remPoints && remMoves>1)
+    if (25 < remPoints && remThrow>1)
     {
-        addWays(remPoints - 25, remMoves - 1, s + " 25", res);
+        DartsThrow(remPoints - 25, remThrow - 1, s + " 25", res);
     }
 
-    if ((50 <= remPoints && remMoves == 1) || (50 <= remPoints && remMoves > 1))
+    if ((50 <= remPoints && remThrow == 1) || (50 <= remPoints && remThrow > 1))
     {
-        addWays(remPoints - 50, remMoves - 1, s + " Bull" , res);
+        DartsThrow(remPoints - 50, remThrow - 1, s + " Bull" , res);
     }
 
    
@@ -53,7 +53,7 @@ int main()
     int n;
     input >> n;
     vector <string> res;
-    addWays(n, 3, "", res);
+    DartsThrow(n, 3, "", res);
     out << (int)res.size() << endl;
     for (auto c: res)
     {
