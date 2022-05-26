@@ -2,7 +2,8 @@
 #include <cmath>
 #include <vector>
 using namespace std;
-
+/*Задача «Шаблонная функция sum_all»
+Реализовать функцию sum_all, которая позволяла бы суммировать аргумент практически любого типа, который ей передан.*/
 template<typename T>
 T sum_all(const vector <T> &vec)
 {
