@@ -9,7 +9,7 @@ set(SFML_DIR C:\\Users/usual\\Documents/Code\\C++/.libraries\\SFML-2.5.1/lib\\cm
 
 find_package(SFML 2.5 COMPONENTS network REQUIRED)
 
-add_executable(Client main.cpp)
+add_executable(Client main.cpp functions.h)
 
 target_link_libraries(Client sfml-network sfml-graphics)
 
